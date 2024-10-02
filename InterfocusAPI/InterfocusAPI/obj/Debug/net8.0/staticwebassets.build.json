@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "4aHnFrDaU+EuOkjITRjDspKo/g2m8ce0QolUqfIHOkg=",
+  "Source": "InterfocusAPI",
+  "BasePath": "_content/InterfocusAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

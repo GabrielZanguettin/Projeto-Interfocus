@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="InterfocusAPI" namespace="InterfocusAPI.Entidades">
+	<class name="Cliente" table="cliente">
+		<id name="ClienteId" column="clienteid">
+			<generator class="native"/>
+		</id>
+		<property name="Nome" column="nome"/>
+		<property name="CPF" column="cpf"/>
+		<property name="DataNasc" column="datanasc"/>
+		<property name="Email" column="email"/>
+		<set name="Dividas" table="divida" inverse="true" cascade="all-delete-orphan" lazy="false">
+			<key column="clienteid"/>
+			<one-to-many class="Divida"/>
+		</set>
+	</class>
+</hibernate-mapping>
