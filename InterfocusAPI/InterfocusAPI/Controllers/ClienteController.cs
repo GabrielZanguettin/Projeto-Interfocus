@@ -3,11 +3,12 @@ using InterfocusAPI.Entidades;
 using InterfocusAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NHibernate.Engine.Query;
 using NHibernate.Linq.Functions;
 
 namespace InterfocusAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class ClienteController : ControllerBase
     {
@@ -16,47 +17,76 @@ namespace InterfocusAPI.Controllers
         {
             this.clienteService = clienteService;
         }
-        [HttpGet("verclientes")]
-        public IActionResult GetClientes()
+        [HttpGet("clientes")]
+        public async Task<IActionResult> GetClientes()
         {
-            var clientes = clienteService.MostrarClientes();
-            return Ok(clientes);
-        }
-        [HttpGet("procurarnome")]
-        public IActionResult ProcurarNome(string nome)
-        {
-            var cliente = clienteService.ProcurarPorNome(nome);
-            return Ok(cliente);
-        }
-        [HttpPost("cadastrar")]
-        public IActionResult Cadastrar([FromBody] Cliente cliente)
-        {
-            if (clienteService.ValidarCliente(cliente.CPF, cliente.Email))
+            try
             {
-                clienteService.CadastrarCliente(cliente);
+                var clientes = await clienteService.MostrarClientes();
+                return Ok(clientes);
+            }
+            catch (Exception error)
+            {
+                return BadRequest(error.Message);
+            }
+            
+        }
+        [HttpGet("clientes/{nome}")]
+        public async Task<IActionResult> ProcurarNome(string nome)
+        {
+            try
+            {
+                var cliente = await clienteService.ProcurarPorNome(nome);
                 return Ok(cliente);
             }
-            return BadRequest();
-        }
-        [HttpPut("atualizarcliente")]
-        public IActionResult Atualizar(int id, [FromBody] ClienteDTO clientedto)
-        {
-            var cliente = clienteService.AtualizarCliente(id, clientedto);
-            if (cliente == null)
+            catch (Exception error)
             {
-                return NotFound();
+                return NotFound(error.Message);
             }
-            return Ok(cliente);
         }
-        [HttpDelete("deletarcliente")]
-        public IActionResult Deletar(int id)
+        [HttpPost("clientes")]
+        public async Task<IActionResult> Cadastrar([FromBody] Cliente cliente)
         {
-            var cliente = clienteService.RemoverCliente(id);
-            if (cliente == null)
+            try
             {
-                return NotFound();
+                if (await clienteService.ValidarCliente(cliente.CPF, cliente.Email))
+                {
+                    await clienteService.CadastrarCliente(cliente);
+                    return Ok(cliente);
+                }
+                return BadRequest();
             }
-            return Ok(cliente);
+            catch (Exception error)
+            {
+                return BadRequest(error.Message);
+            }
+        }
+        [HttpPut("clientes/{id}")]
+        public async Task<IActionResult> Atualizar(int id, [FromBody] ClienteDTO clientedto)
+        {
+            try
+            {
+                var cliente = await clienteService.AtualizarCliente(id, clientedto);
+                return Ok(cliente);
+            }
+            catch(Exception error)
+            {
+                return BadRequest(error.Message);
+            }
+
+        }
+        [HttpDelete("clientes/{id}")]
+        public async Task<IActionResult> Deletar(int id)
+        {
+            try
+            {
+                var cliente = await clienteService.RemoverCliente(id);
+                return Ok(cliente);
+            }
+            catch (Exception error)
+            {
+                return BadRequest(error.Message);
+            }
         }
     }
 }

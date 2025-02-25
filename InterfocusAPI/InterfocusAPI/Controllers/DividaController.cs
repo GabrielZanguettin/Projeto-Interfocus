@@ -7,7 +7,7 @@ using NHibernate.Type;
 
 namespace InterfocusAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class DividaController : ControllerBase
     {
@@ -16,39 +16,71 @@ namespace InterfocusAPI.Controllers
         {
             this.dividaService = dividaService;
         }
-        [HttpGet("verdividas")]
-        public IActionResult Dividas(int id)
+        [HttpGet("dividas/{id}")]
+        public async Task<IActionResult> Dividas(int id)
         {
-            var dividas = dividaService.VerDividas(id);
-            return Ok(dividas);
-        }
-        [HttpGet("somadividas")]
-        public IActionResult VerSomaDividas(int id)
-        {
-            var somadividas = dividaService.SomaDividasCliente(id);
-            return Ok($"A soma das dívidas é de {somadividas} reais");
-        }
-        [HttpPost("cadastrardivida")]
-        public IActionResult CadastroDivida(int id, [FromBody] Divida divida)
-        {
-            var d = dividaService.CadastrarDivida(id, divida);
-            return Ok(d);
-        }
-        [HttpPut("atualizardivida")]
-        public IActionResult MarcarPaga(int id, [FromBody] DividaDTO dividadto)
-        {
-            var divida = dividaService.MarcarDividaPaga(id, dividadto);
-            return Ok(divida);
-        }
-        [HttpDelete("deletardivida")]
-        public IActionResult DeletarDivida(int id)
-        {
-            var divida = dividaService.RemoverDivida(id);
-            if (divida == null)
+            try
             {
-                return NotFound();
+                var dividas = await dividaService.VerDividas(id);
+                return Ok(dividas);
             }
-            return Ok(divida);
+            catch (Exception error)
+            {
+                return BadRequest(error.Message);
+            }
+        }
+        [HttpGet("sumdividas/{id}")]
+        public async Task<IActionResult> VerSomaDividas(int id)
+        {
+            try
+            {
+                var somadividas = await dividaService.SomaDividasCliente(id);
+                return Ok(somadividas);
+            }
+            catch(Exception error)
+            {
+                return BadRequest(error.Message);
+            }
+        }
+        [HttpPost("dividas/{id}")]
+        public async Task<IActionResult> CadastroDivida(int id, [FromBody] Divida divida)
+        {
+            try
+            {
+                var d = await dividaService.CadastrarDivida(id, divida);
+                return Ok(d);
+            }
+            catch(Exception error)
+            {
+                return BadRequest(error.Message);
+            }
+            
+        }
+        [HttpPut("dividas/{id}")]
+        public async Task<IActionResult> MarcarPaga(int id, [FromBody] DividaDTO dividadto)
+        {
+            try
+            {
+                var divida = await dividaService.MarcarDividaPaga(id, dividadto);
+                return Ok(divida);
+            }
+            catch (Exception error)
+            {
+                return BadRequest(error.Message);
+            }
+        }
+        [HttpDelete("dividas/{id}")]
+        public async Task<IActionResult> DeletarDivida(int id)
+        {
+            try
+            {
+                var divida = await dividaService.RemoverDivida(id);
+                return Ok(divida);
+            }
+            catch (Exception error)
+            {
+                return BadRequest(error.Message);  
+            }
         }
     }
 }

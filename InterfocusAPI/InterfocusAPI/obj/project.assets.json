@@ -6460,19 +6460,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\xxxga\\.nuget\\packages\\": {}
+    "C:\\Users\\Aula\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\xxxga\\source\\repos\\InterfocusAPI\\InterfocusAPI\\InterfocusAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Aula\\Downloads\\Projeto-Interfocus-main\\Projeto-Interfocus-main\\InterfocusAPI\\InterfocusAPI\\InterfocusAPI.csproj",
       "projectName": "InterfocusAPI",
-      "projectPath": "C:\\Users\\xxxga\\source\\repos\\InterfocusAPI\\InterfocusAPI\\InterfocusAPI.csproj",
-      "packagesPath": "C:\\Users\\xxxga\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\xxxga\\source\\repos\\InterfocusAPI\\InterfocusAPI\\obj\\",
+      "projectPath": "C:\\Users\\Aula\\Downloads\\Projeto-Interfocus-main\\Projeto-Interfocus-main\\InterfocusAPI\\InterfocusAPI\\InterfocusAPI.csproj",
+      "packagesPath": "C:\\Users\\Aula\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Aula\\Downloads\\Projeto-Interfocus-main\\Projeto-Interfocus-main\\InterfocusAPI\\InterfocusAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\xxxga\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Aula\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6492,11 +6492,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {

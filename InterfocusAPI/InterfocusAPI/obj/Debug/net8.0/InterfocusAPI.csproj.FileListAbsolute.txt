@@ -54,3 +54,13 @@ C:\Users\xxxga\source\repos\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\refint\
 C:\Users\xxxga\source\repos\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\InterfocusAPI.pdb
 C:\Users\xxxga\source\repos\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\InterfocusAPI.genruntimeconfig.cache
 C:\Users\xxxga\source\repos\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\ref\InterfocusAPI.dll
+C:\Users\Aula\Downloads\Projeto-Interfocus-main\Projeto-Interfocus-main\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\InterfocusAPI.csproj.AssemblyReference.cache
+C:\Users\Aula\Downloads\Projeto-Interfocus-main\Projeto-Interfocus-main\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\InterfocusAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Aula\Downloads\Projeto-Interfocus-main\Projeto-Interfocus-main\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\InterfocusAPI.AssemblyInfoInputs.cache
+C:\Users\Aula\Downloads\Projeto-Interfocus-main\Projeto-Interfocus-main\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\InterfocusAPI.AssemblyInfo.cs
+C:\Users\Aula\Downloads\Projeto-Interfocus-main\Projeto-Interfocus-main\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\InterfocusAPI.csproj.CoreCompileInputs.cache
+C:\Users\Aula\Downloads\Projeto-Interfocus-main\Projeto-Interfocus-main\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\InterfocusAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Aula\Downloads\Projeto-Interfocus-main\Projeto-Interfocus-main\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\InterfocusAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Aula\Downloads\Projeto-Interfocus-main\Projeto-Interfocus-main\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\InterfocusAPI.dll
+C:\Users\Aula\Downloads\Projeto-Interfocus-main\Projeto-Interfocus-main\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\refint\InterfocusAPI.dll
+C:\Users\Aula\Downloads\Projeto-Interfocus-main\Projeto-Interfocus-main\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\InterfocusAPI.pdb

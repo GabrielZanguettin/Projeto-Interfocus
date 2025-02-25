@@ -1,6 +1,7 @@
 ﻿using InterfocusAPI.Dtos;
 using InterfocusAPI.Entidades;
 using NHibernate;
+using NHibernate.Linq;
 
 namespace InterfocusAPI.Services
 {
@@ -11,31 +12,31 @@ namespace InterfocusAPI.Services
         {
             this.sessionFactory = sessionFactory;
         }
-        public bool CadastrarCliente(Cliente cliente) // Post
+        public async Task<Cliente> CadastrarCliente(Cliente cliente) // Post
         {
             using var session = sessionFactory.OpenSession();
             using var transaction = session.BeginTransaction();
-            session.Save(cliente);
-            transaction.Commit();
-            return true;
+            await session.SaveAsync(cliente);
+            await transaction.CommitAsync();
+            return cliente;
         }
-        public List<Cliente> ProcurarPorNome(string nome) // Get
+        public async Task<List<Cliente>> ProcurarPorNome(string nome) // Get
         {
             using var session = sessionFactory.OpenSession();
-            var clientes = session.Query<Cliente>().Where(c => c.Nome == nome).ToList();
+            var clientes = await session.Query<Cliente>().Where(c => c.Nome == nome).ToListAsync();
             return clientes;
         }
-        public List<Cliente> MostrarClientes() // Get
+        public async Task<List<Cliente>> MostrarClientes() // Get
         {
             using var session = sessionFactory.OpenSession();
-            var clientes = session.Query<Cliente>().OrderByDescending(c => c.Dividas.Where(d => d.Situacao == false).Sum(d => d.Valor)).ToList();
+            var clientes = await session.Query<Cliente>().OrderByDescending(c => c.Dividas.Where(d => d.Situacao == false).Sum(d => d.Valor)).ToListAsync();
             return clientes;
         }
-        public Cliente AtualizarCliente(int id, ClienteDTO clientedto) // Put
+        public async Task<Cliente> AtualizarCliente(int id, ClienteDTO clientedto) // Put
         {
             using var session = sessionFactory.OpenSession();
             using var transaction = session.BeginTransaction();
-            var Cliente = session.Get<Cliente>(id);
+            var Cliente = await session.GetAsync<Cliente>(id);
             if (Cliente == null)
             {
                 throw new Exception("Cliente não encontrado");
@@ -44,30 +45,30 @@ namespace InterfocusAPI.Services
             Cliente.CPF = clientedto.CPF;
             Cliente.DataNasc = clientedto.DataNasc;
             Cliente.Email = clientedto.Email;
-            session.Update(Cliente);
-            transaction.Commit();
+            await session.UpdateAsync(Cliente);
+            await transaction.CommitAsync();
             return Cliente;
         }
-        public Cliente RemoverCliente(int id) // Delete
+        public async Task<Cliente> RemoverCliente(int id) // Delete
         {
             using var session = sessionFactory.OpenSession();
             using var transaction = session.BeginTransaction();
-            var cliente = session.QueryOver<Cliente>()
+            var cliente = await session.QueryOver<Cliente>()
                            .Where(c => c.ClienteId == id)
                            .Fetch(d => d.Dividas).Eager
-                           .SingleOrDefault();
+                           .SingleOrDefaultAsync();
             if (cliente == null)
             {
                 throw new Exception("Cliente não encontrado");
             }
-            session.Delete(cliente);
-            transaction.Commit();
+            await session.DeleteAsync(cliente);
+            await transaction.CommitAsync();
             return cliente;
         }
-        public bool ValidarCliente(string cpf, string email)
+        public async Task<bool> ValidarCliente(string cpf, string email)
         {
             using var session = sessionFactory.OpenSession();
-            var cliente = session.Query<Cliente>().FirstOrDefault(c => c.CPF == cpf || c.Email == email);
+            var cliente = await session.Query<Cliente>().FirstOrDefaultAsync(c => c.CPF == cpf || c.Email == email);
             if (cliente == null)
             {
                 return true;
