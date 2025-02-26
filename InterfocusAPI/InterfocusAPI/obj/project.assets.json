@@ -6460,19 +6460,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Aula\\.nuget\\packages\\": {}
+    "C:\\Users\\xxxga\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Aula\\Downloads\\Projeto-Interfocus-main\\Projeto-Interfocus-main\\InterfocusAPI\\InterfocusAPI\\InterfocusAPI.csproj",
+      "projectUniqueName": "C:\\Users\\xxxga\\source\\repos\\InterfocusAPI\\InterfocusAPI\\InterfocusAPI.csproj",
       "projectName": "InterfocusAPI",
-      "projectPath": "C:\\Users\\Aula\\Downloads\\Projeto-Interfocus-main\\Projeto-Interfocus-main\\InterfocusAPI\\InterfocusAPI\\InterfocusAPI.csproj",
-      "packagesPath": "C:\\Users\\Aula\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Aula\\Downloads\\Projeto-Interfocus-main\\Projeto-Interfocus-main\\InterfocusAPI\\InterfocusAPI\\obj\\",
+      "projectPath": "C:\\Users\\xxxga\\source\\repos\\InterfocusAPI\\InterfocusAPI\\InterfocusAPI.csproj",
+      "packagesPath": "C:\\Users\\xxxga\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\xxxga\\source\\repos\\InterfocusAPI\\InterfocusAPI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Aula\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\xxxga\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6492,7 +6497,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -6534,7 +6545,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

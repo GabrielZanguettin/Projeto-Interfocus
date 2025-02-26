@@ -57,11 +57,11 @@ namespace InterfocusAPI.Controllers
             
         }
         [HttpPut("dividas/{id}")]
-        public async Task<IActionResult> MarcarPaga(int id, [FromBody] DividaDTO dividadto)
+        public async Task<IActionResult> MarcarPaga(int id)
         {
             try
             {
-                var divida = await dividaService.MarcarDividaPaga(id, dividadto);
+                var divida = await dividaService.MarcarDividaPaga(id);
                 return Ok(divida);
             }
             catch (Exception error)

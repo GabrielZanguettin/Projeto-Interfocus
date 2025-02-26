@@ -64,3 +64,7 @@ C:\Users\Aula\Downloads\Projeto-Interfocus-main\Projeto-Interfocus-main\Interfoc
 C:\Users\Aula\Downloads\Projeto-Interfocus-main\Projeto-Interfocus-main\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\InterfocusAPI.dll
 C:\Users\Aula\Downloads\Projeto-Interfocus-main\Projeto-Interfocus-main\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\refint\InterfocusAPI.dll
 C:\Users\Aula\Downloads\Projeto-Interfocus-main\Projeto-Interfocus-main\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\InterfocusAPI.pdb
+C:\Users\xxxga\source\repos\InterfocusAPI\InterfocusAPI\bin\Debug\net8.0\InterfocusAPI.staticwebassets.endpoints.json
+C:\Users\xxxga\source\repos\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\xxxga\source\repos\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\staticwebassets\msbuild.InterfocusAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\xxxga\source\repos\InterfocusAPI\InterfocusAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

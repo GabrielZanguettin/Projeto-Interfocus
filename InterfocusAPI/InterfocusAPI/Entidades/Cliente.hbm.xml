@@ -8,7 +8,7 @@
 		<property name="CPF" column="cpf"/>
 		<property name="DataNasc" column="datanasc"/>
 		<property name="Email" column="email"/>
-		<set name="Dividas" table="divida" inverse="true" cascade="all-delete-orphan" lazy="false">
+		<set name="Dividas" table="divida" inverse="false" cascade="all-delete-orphan" lazy="false">
 			<key column="clienteid"/>
 			<one-to-many class="Divida"/>
 		</set>

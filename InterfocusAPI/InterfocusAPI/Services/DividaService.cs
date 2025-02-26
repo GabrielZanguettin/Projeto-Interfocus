@@ -20,8 +20,10 @@ namespace InterfocusAPI.Services
             var somadividas = cliente.Dividas.Where(d => d.Situacao == false).Sum(d => d.Valor);
             if (cliente == null || divida.Valor + somadividas > 200)
             {
-                throw new Exception();
+                throw new Exception("A soma das suas dívidas já ultrapassou de 200 reais");
             }
+            divida.Situacao = false;
+            divida.DataCriacao = DateTime.Now;
             divida.Cliente = cliente;
             divida.ClienteId = cliente.ClienteId;
             cliente.Dividas.Add(divida);
@@ -30,7 +32,7 @@ namespace InterfocusAPI.Services
             await transaction.CommitAsync();
             return divida;
         }
-        public async Task<Divida> MarcarDividaPaga(int id, DividaDTO dividadto)
+        public async Task<Divida> MarcarDividaPaga(int id)
         {
             using var session = sessionFactory.OpenSession();
             using var transaction = session.BeginTransaction();
@@ -39,7 +41,8 @@ namespace InterfocusAPI.Services
             {
                 throw new Exception("Divida não encontrada");
             }
-            divida.Situacao = dividadto.Situacao;
+            divida.Situacao = true;
+            divida.DataPagamento = DateTime.Now;
             await session.UpdateAsync(divida);
             await transaction.CommitAsync();
             return divida;
